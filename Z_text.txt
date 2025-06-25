@@ -1,0 +1,6 @@
+What is Content Negotiation?
+
+Content Negotiation is the process by which the server decides what type of response format (JSON, XML, HTML, etc.) to send to the client/browser — based on what the client asks for.
+
+Why is this useful?
+Same API, multiple client types (Web, Mobile, Browser), No extra code, supports postman

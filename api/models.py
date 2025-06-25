@@ -13,6 +13,7 @@ class Product(models.Model):
     stock = models.PositiveBigIntegerField()
     image = models.ImageField(upload_to='products/', blank=True, null=True)
 
+    # @property makes a method behave like a field/attribute.
     @property
     def in_stock(self):
         return self.stock > 0
@@ -36,7 +37,7 @@ class Order(models.Model):
         choices=StatusChoices.choices,
         default=StatusChoices.PENDING
     )
-    products = models.ManyToManyField(Product, through='OrderItem', related_name='orders')
+    products = models.ManyToManyField(Product, through='OrderItem', related_name='orders') 
     def __str__(self):
         return f"Order {self.order_id} by {self.user.username}"
 
@@ -50,6 +51,7 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
 
+    # @property makes a method behave like a field/attribute.
     @property
     def item_subtotal(self):
         return self.product.price * self.quantity

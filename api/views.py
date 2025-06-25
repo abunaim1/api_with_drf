@@ -1,8 +1,8 @@
 # from django.http import JsonResponse
 from django.db.models import Max
 from django.shortcuts import get_object_or_404
-from api.models import Product, Order, OrderItem
-from api.serializers import ProductSerializer, OrderSerializer, OrderItemSerializer, ProductInfoSerializers
+from api.models import Product, Order
+from api.serializers import ProductSerializer, OrderSerializer, ProductInfoSerializers
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
