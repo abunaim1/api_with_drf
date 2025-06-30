@@ -12,12 +12,24 @@ from rest_framework.permissions import (
     IsAdminUser
 )
 from rest_framework.views import APIView
-
+from api.filters import ProductFilter, InStockFilterBackend
+from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     # queryset = Product.objects.filter(stock__gt=0)
     serializer_class = ProductSerializer
+    filterset_class = ProductFilter 
+    #alternative way to order and search
+    filter_backends = [
+        DjangoFilterBackend, 
+        filters.SearchFilter,
+        filters.OrderingFilter,
+        InStockFilterBackend,
+        ]
+    search_fields = ['=name', 'description']
+    ordering_fields = ['name', 'price', 'stock']
 
     def create(self, request, *args, **kwargs):
         # print(request.data)
@@ -30,10 +42,16 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
         return super().get_permissions()
 
     
-class ProductDetailAPIView(generics.RetrieveAPIView):
+class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     lookup_url_kwarg = 'product_id'
+
+    def get_permissions(self):
+        self.permission_classes = [AllowAny]
+        if self.request.method in ['PUT', 'PATCH', 'DELETE' ]:
+            self.permission_classes = [IsAdminUser]
+        return super().get_permissions()
 
 
 class OrderListAPIView(generics.ListAPIView):

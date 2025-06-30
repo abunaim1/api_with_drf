@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'api',
 
     'django_extensions',
+
     'rest_framework',
     'silk',
+    'drf_spectacular',
+    'django_filters',
     
 ]
 
@@ -133,8 +136,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'api.User'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ],
+    
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Leraning API..',
+    'DESCRIPTION': 'Just learn many thing from Bugbytes channel..',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }
