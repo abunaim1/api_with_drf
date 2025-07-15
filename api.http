@@ -15,14 +15,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 
 ###
 
-GET http://127.0.0.1:8000/api/user-orders/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwOTU3MTc2LCJpYXQiOjE3NTA5NTY4NzYsImp0aSI6IjhiYWIwMTdmZDJjODRkYTQ5M2JlZmU1NDg5MmIyMzVkIiwidXNlcl9pZCI6Mn0.aOPKI7uB3Lwjrurq78sBTf5CeG03oixzLHLyUiv4wLk
-
-
-###
-
 GET http://127.0.0.1:8000/api/products/4/ HTTP/1.1
-
 
 ###
 PUT http://127.0.0.1:8000/api/products/4/ HTTP/1.1
@@ -41,8 +34,8 @@ DELETE  http://127.0.0.1:8000/api/products/4/ HTTP/1.1
 
 ###
 
-GET http://127.0.0.1:8000/api/orders/de1d6ce3-1927-4b73-9c2e-92d6bf2e9507/ HTTP/1.1 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxODk3NzIyLCJpYXQiOjE3NTE4OTc0MjIsImp0aSI6IjQyN2JlY2YzMWIxZTQ3MTBhYjFhZGRkZmI1N2FiZmZlIiwidXNlcl9pZCI6Mn0.4J5OPhTRIdSKnQP_UkEFhPCuX1dcMophSuVljCceJXo
+GET http://127.0.0.1:8000/api/orders/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNTI1NzA2LCJpYXQiOjE3NTI1MjIxMDYsImp0aSI6IjIxMTNkNmM2MWZmZjQ2YmU5Nzg0ZGFmNjg4OWY1ZWNkIiwidXNlcl9pZCI6M30.W3kEKq9COqclzhIidWNt0ioezkCcyaBStZxNxEVZcCA
 
 ###
 
@@ -67,7 +60,7 @@ Content-Type: application/json
 ###
 
 PUT http://127.0.0.1:8000/api/orders/bc4c4b64-d25e-4577-80bc-185ebdc9a238/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDAyNzM4LCJpYXQiOjE3NTIwMDI0MzgsImp0aSI6IjE0MzE2ZDM5MjM4ZDQ3ZTI5ZWE1YzhkZTY2ODY2ZmM3IiwidXNlcl9pZCI6Mn0.8Lh9sPpmsV_9YSl82zlThcHLaIwbWTpEukYFvOhM-eQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNTI0NTQ0LCJpYXQiOjE3NTI1MjA5NDQsImp0aSI6IjFkNDk0ZTg2NDY5ODQ0NmFhMDEwZTAwY2ViM2UzMThjIiwidXNlcl9pZCI6M30.OmARG3BcFbhywxyiqaV8lRoqo51PDSjrKygtFxuJXGQ
 Content-Type: application/json
 
 {
@@ -90,8 +83,8 @@ POST http://127.0.0.1:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username" : "abunaim",
-    "password" : "abunaim"
+    "username" : "admin1",
+    "password" : "admin1"
 }
 
 ###
