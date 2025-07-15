@@ -35,7 +35,7 @@ DELETE  http://127.0.0.1:8000/api/products/4/ HTTP/1.1
 ###
 
 GET http://127.0.0.1:8000/api/orders/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNTI1NzA2LCJpYXQiOjE3NTI1MjIxMDYsImp0aSI6IjIxMTNkNmM2MWZmZjQ2YmU5Nzg0ZGFmNjg4OWY1ZWNkIiwidXNlcl9pZCI6M30.W3kEKq9COqclzhIidWNt0ioezkCcyaBStZxNxEVZcCA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNTY0Njk4LCJpYXQiOjE3NTI1NjEwOTgsImp0aSI6IjgyMGQ4NTMzNTQ0MDQxYTM5ZTFiN2YyZDU1YzgxZDdlIiwidXNlcl9pZCI6Mn0.bU5uvbEQCY458Lvq9NoGyLESwLst79WVsiLHry9ayAk
 
 ###
 
@@ -83,8 +83,8 @@ POST http://127.0.0.1:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username" : "admin1",
-    "password" : "admin1"
+    "username" : "abunaim",
+    "password" : "abunaim"
 }
 
 ###
