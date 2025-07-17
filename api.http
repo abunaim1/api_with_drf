@@ -59,8 +59,8 @@ Content-Type: application/json
 
 ###
 
-PUT http://127.0.0.1:8000/api/orders/bc4c4b64-d25e-4577-80bc-185ebdc9a238/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNTI0NTQ0LCJpYXQiOjE3NTI1MjA5NDQsImp0aSI6IjFkNDk0ZTg2NDY5ODQ0NmFhMDEwZTAwY2ViM2UzMThjIiwidXNlcl9pZCI6M30.OmARG3BcFbhywxyiqaV8lRoqo51PDSjrKygtFxuJXGQ
+POST http://127.0.0.1:8000/api/orders/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNzQ1NjE5LCJpYXQiOjE3NTI3NDIwMTksImp0aSI6IjJjZTc1NTlmOGVmZjQzYWNiYzhjYTVhZGIyYjM3NDJjIiwidXNlcl9pZCI6M30.mVqiD5-eHvX4Yu03ssmtRolsL0qm81QVWTHzGa7OPsc
 Content-Type: application/json
 
 {
@@ -83,8 +83,8 @@ POST http://127.0.0.1:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username" : "abunaim",
-    "password" : "abunaim"
+    "username" : "admin1",
+    "password" : "admin1"
 }
 
 ###
