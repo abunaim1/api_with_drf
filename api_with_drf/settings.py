@@ -148,11 +148,11 @@ REST_FRAMEWORK = {
 
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '2/m',
-        'user': '3/m'
+        'anon': '2/minute',
+        'products': '2/minute',
+        'orders': '4/minute',
     },
 }
 

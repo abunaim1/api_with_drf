@@ -16,6 +16,7 @@ from api.filters import InStockFilterBackend, OrderFilter, ProductFilter
 from api.models import Order, Product, User
 from api.serializers import (OrderSerializer, ProductInfoSerializers,
                              ProductSerializer, OrderCreateSerializer, UserSerializer)
+from rest_framework.throttling import ScopedRateThrottle
 
 
 class UserListView(generics.ListAPIView):
@@ -24,6 +25,8 @@ class UserListView(generics.ListAPIView):
     pagination_class = None
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
+    throttle_scope = 'products'
+    throttle_classes = [ScopedRateThrottle]
     queryset = Product.objects.order_by('pk')
     # queryset = Product.objects.filter(stock__gt=0)
     serializer_class = ProductSerializer
@@ -76,6 +79,7 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class OrderViewSet(viewsets.ModelViewSet):
+    throttle_scope = 'orders'
     queryset = Order.objects.prefetch_related('items__product')
     serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated]
