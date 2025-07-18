@@ -46,12 +46,16 @@ INSTALLED_APPS = [
     'silk',
     'drf_spectacular',
     'django_filters',
+
+    'djoser',
+    'corsheaders',
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -60,6 +64,8 @@ MIDDLEWARE = [
 
     'silk.middleware.SilkyMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173',]
 
 ROOT_URLCONF = 'api_with_drf.urls'
 
@@ -179,6 +185,7 @@ CACHES = {
 
 from datetime import timedelta
 SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }

@@ -88,3 +88,24 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://127.0.0.1:8000/auth/jwt/create/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username" : "admin1",
+    "password" : "admin1"
+}
+
+###
+
+GET http://127.0.0.1:8000/auth/users/me/ HTTP/1.1
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODYzNjA3LCJpYXQiOjE3NTI4NjAwMDcsImp0aSI6ImEwNjU4ZDRkOTZjYjQ2NjJiZjdmMzlhNGVmNmY3NGY3IiwidXNlcl9pZCI6Mn0.JhbPOr7Q2Wl2Lr71X1wS3MkM-9ajZSeon-Pt0Nd8HfE
+
+###
+POST http://127.0.0.1:8000/auth/jwt/refresh/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "refresh" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mjk0Njc5OCwiaWF0IjoxNzUyODYwMzk4LCJqdGkiOiJhZGVhMmM5ZjRmMWE0YzdmYjZmNDFhNjc5ZDY2MGEzYiIsInVzZXJfaWQiOjN9.W9wqfKOepbL1TcirODGMeyp5t5lFcTdCjQ14ErBAPVQ"
+}
