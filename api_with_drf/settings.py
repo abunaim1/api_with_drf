@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -180,16 +181,22 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
+REDIS_URL = os.getenv("redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431", "redis://127.0.0.1:6379/1")
 
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "LOCATION": "redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
 }
+
+# Celery config
+CELERY_BROKER_URL = "redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431"
+CELERY_RESULT_BACKEND = "redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431"
+
 
 # Django project settings.py
 
@@ -200,13 +207,9 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
-# tell celery about Redis - same url as CACHES setting
-CELERY_BROKER_URL = "redis://127.0.0.1:6379/1"
-
-CELERY_RESULTS_BACKEND = "redis://127.0.0.1:6379/1"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-import os
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
