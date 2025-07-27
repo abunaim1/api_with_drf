@@ -145,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -181,6 +182,23 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         }
+#     }
+# }
+
+
+# tell celery about Redis - same url as CACHES setting
+# CELERY_BROKER_URL = "redis://127.0.0.1:6379/1"
+
+# CELERY_RESULTS_BACKEND = "redis://127.0.0.1:6379/1"
+
+
 REDIS_URL = os.getenv("redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431", "redis://127.0.0.1:6379/1")
 
 CACHES = {
@@ -193,12 +211,10 @@ CACHES = {
     }
 }
 
-# Celery config
+# Celery config for deployment 
 CELERY_BROKER_URL = "redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431"
 CELERY_RESULT_BACKEND = "redis://default:tblkOgVYgcBmTtLefRLdMDdGeCzFicVs@maglev.proxy.rlwy.net:32431"
 
-
-# Django project settings.py
 
 from datetime import timedelta
 SIMPLE_JWT = {
@@ -211,5 +227,3 @@ SIMPLE_JWT = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
