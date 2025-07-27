@@ -163,8 +163,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Leraning API..',
-    'DESCRIPTION': 'Just learn many thing from Bugbytes channel..',
+    'TITLE': 'E-Commerce API',
+    'DESCRIPTION': 'Built a scalable and robust e-commerce API',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
