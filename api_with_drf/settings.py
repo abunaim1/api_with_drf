@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-5yza$-t7m_b42=cn-663nkg+9e6b%&@i=)k#$+krfwreug2y0^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -91,11 +92,20 @@ WSGI_APPLICATION = 'api_with_drf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+        conn_max_age=600
+    )
 }
 
 
@@ -196,3 +206,7 @@ CELERY_BROKER_URL = "redis://127.0.0.1:6379/1"
 CELERY_RESULTS_BACKEND = "redis://127.0.0.1:6379/1"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+import os
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
